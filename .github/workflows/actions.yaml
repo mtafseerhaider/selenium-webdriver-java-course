@@ -5,8 +5,9 @@ name: on_push
 
 on:
   push:
-    branch:
-      - "**" # This will run on all branches and must be quoted to be handled by yaml
+    branches:
+    #- "**" # This will run on all branches and must be quoted to be handled by yaml
+     - main
 
 # What jobs to execute
 
@@ -16,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@main
