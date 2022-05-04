@@ -1,6 +1,7 @@
 package base;
 
 import com.google.common.io.Files;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,11 +23,8 @@ public class BaseTests {
 
     @BeforeClass
     public void setUp(){
-        var driverExtention = "";
-        if(System.getenv("RUNNER_OS") != null) {
-            driverExtention = "-linux";
-        };
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver" + driverExtention);
+
+        WebDriverManager.chromedriver().setup();
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
     }
