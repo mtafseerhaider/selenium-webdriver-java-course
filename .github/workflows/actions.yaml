@@ -18,8 +18,9 @@
         - name: Install Java
           uses: actions/setup-java@v2
           with:
-            distrubution: 'zulu'
+            distrubution: 'liberica'
             java-version: 18
+            java-package: jre
         - name: Run tests with Maven
           working-directory: webdriver_java
           run: mvn test
