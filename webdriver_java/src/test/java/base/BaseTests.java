@@ -18,15 +18,14 @@ import java.io.IOException;
 
 public class BaseTests {
 
-    private EventFiringWebDriver driver;
+    private WebDriver driver;
     protected HomePage homePage;
 
     @BeforeClass
     public void setUp(){
 
         WebDriverManager.chromedriver().setup();
-        driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
-        driver.register(new EventReporter());
+        driver = new ChromeDriver(getChromeOptions());
     }
 
     @BeforeMethod
@@ -61,7 +60,8 @@ public class BaseTests {
     private ChromeOptions getChromeOptions(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
-
+        options.addArguments("--incognito");
+        options.addArguments("--start-maximized");
         // Default headless mode off, set to true based on env var
         var headless = Boolean.parseBoolean(System.getenv("HEADLESS_CHROME")) | false;
         options.setHeadless(headless);

@@ -10,6 +10,16 @@
   jobs:
     build_and_test:
       runs-on: ubuntu-latest
+      env:
+        HEADLESS_CHROME: true
       steps:
         - name: Make sure pipeline has access to the codebase
           uses: actions/checkout@v2
+        - name: Install Java
+          uses: actions/setup-java@v2
+          with:
+            distrubution: 'zulu'
+            java-version: 18
+        - name: Run tests with Maven
+          working-directory: webdriver_java
+          run: mvn test
