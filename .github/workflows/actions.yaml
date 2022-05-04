@@ -16,10 +16,10 @@
         - name: Make sure pipeline has access to the codebase
           uses: actions/checkout@v2
         - name: Install Java
-          uses: actions/setup-java@v2
+          uses: actions/setup-java@v3
           with:
             distrubution: 'liberica'
-            java-version: 18
+            java-version: '18'
             java-package: jre
         - name: Run tests with Maven
           working-directory: webdriver_java
