@@ -20,7 +20,7 @@
           with:
             distribution: 'liberica'
             java-version: '18'
-            java-package: jre
+            java-package: jdk
         - name: Run tests with Maven
           working-directory: webdriver_java
           run: mvn test
