@@ -10,5 +10,6 @@
   jobs:
     build_and_test:
       runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      steps:
+        - name: Make sure pipeline has access to the codebase
+          uses: actions/checkout@v2
