@@ -18,9 +18,8 @@
       steps:
         - name: Set start time
           run:  echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
-          uses: actions/checkout@v2
-        - name: Install Java
-          uses: actions/setup-java@v3
+        - uses: actions/checkout@v2
+        - uses: actions/setup-java@v3
           with:
             distribution: 'liberica'
             java-version: '18'
